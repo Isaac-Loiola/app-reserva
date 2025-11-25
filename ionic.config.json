@@ -1,0 +1,7 @@
+{
+  "name": "app-reserva",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
