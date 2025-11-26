@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, ToastController } from '@ionic/angular/standalone';
+import { FormControl, FormGroup, FormsModule, Validators, ReactiveFormsModule} from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, ToastController, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel, IonSkeletonText, IonText, IonInput, IonGrid, IonRow, IonCol, IonDatetime, IonButton, IonSelect, IonSelectOption, IonTextarea, IonFooter } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-reserva',
   templateUrl: './reserva.page.html',
   styleUrls: ['./reserva.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonMenuButton]
+  imports: [IonFooter, IonButton, IonDatetime, IonCol, IonRow, IonGrid, IonInput, IonSkeletonText, IonItem, IonList, IonCardContent, IonCardTitle, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonMenuButton, ReactiveFormsModule, IonCard, IonCardHeader, IonLabel, IonText, IonSelect, IonSelectOption, IonTextarea]
 })
 export class ReservaPage implements OnInit {
 
@@ -18,7 +18,7 @@ export class ReservaPage implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     data: new FormControl('', Validators.required),
     hora: new FormControl('', [Validators.required]),
-    pessoas: new FormControl('2', [Validators.min(1)]),
+    pessoas: new FormControl(2, [Validators.min(1)]),
     preferencia: new FormControl(''),
     ocasiao: new FormControl(''),
     observacoes: new FormControl('')
@@ -51,7 +51,6 @@ export class ReservaPage implements OnInit {
       message: msg,
       duration: 3000,
       color: 'primary',
-      position: 'middle'
     });
     toast.present();
   }
